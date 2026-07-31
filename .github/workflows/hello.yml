@@ -1,0 +1,18 @@
+name: Hello pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Who am I
+        run: |
+          echo "Hello from the agent"
+          echo "Running on: $(hostname)"
+          echo "OS: $(uname -a)"
+          echo "Current user: $(whoami)"
+          echo "Triggered by commit: $GITHUB_SHA"
+          echo "Pushed by: $GITHUB_ACTOR"
